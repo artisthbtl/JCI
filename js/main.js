@@ -12,6 +12,33 @@ async function loadComponent(elementId, filePath) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadComponent("navbar-placeholder", "navbar.html");
+function initializeMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    if (!mobileMenuBtn || !navLinks) return;
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.textContent = '☰';
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.textContent = '☰';
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadComponent("navbar-placeholder", "navbar.html");
+    initializeMobileMenu();
 });
