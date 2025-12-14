@@ -9,39 +9,72 @@
   </head>
   <body>
     <div class="landing-page">
-      <img class="texture" src="../assets/drones.avif" />
-      
-      <h1 class="hero-title">Real Superman in the Sky</h1>
-      
-      <p class="text">Serving the most reliable and durable drones for filmmaking to reconnaissance.</p>
-      
-      <div class="hero-buttons">
-        <button class="button">
-          <div class="text-wrapper">Explore</div>
-          <div class="SVG-margin">
-            <div class="SVG">
-              <div class="frame"><img class="vector" src="../assets/vector.svg" /></div>
+        <!-- Background Image -->
+        <img class="texture" src="../assets/drones.avif" alt="Drone Background">
+        
+        <!-- Navbar -->
+        <nav class="nav-bar">
+            <div class="brand">JCI</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="nav-link">Explore</a>
+                <a href="#" class="nav-link">Forum</a>
+                <a href="#" class="nav-link">Contact Us</a>
             </div>
-          </div>
-        </button>
-        <button class="button-2">
-          <div class="div">Contact Us</div>
-          <div class="SVG-wrapper">
-            <div class="SVG">
-              <div class="frame"><img class="vector" src="../assets/vector.svg" /></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </nav>
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Real Superman in the Sky</h1>
+                <p class="hero-text">Serving the most reliable and durable drones for filmmaking to reconnaissance.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">
+                        <span>Explore</span>
+                        <span class="btn-icon">
+                            <svg viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0.92025L0.920249 0L8.7135 7.79325C9.35325 8.433 9.35325 9.4875 8.7135 10.1273L0.920249 17.9205L0 17.0003L7.79325 9.207C7.85625 9.144 7.89525 9.05625 7.89525 8.96025C7.89525 8.86425 7.85625 8.7765 7.79325 8.7135L0 0.92025Z" fill="#22211F"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <span>Contact Us</span>
+                        <span class="btn-icon">
+                            <svg viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0.92025L0.920249 0L8.7135 7.79325C9.35325 8.433 9.35325 9.4875 8.7135 10.1273L0.920249 17.9205L0 17.0003L7.79325 9.207C7.85625 9.144 7.89525 9.05625 7.89525 8.96025C7.89525 8.86425 7.85625 8.7765 7.79325 8.7135L0 0.92025Z" fill="#ffffff"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
             </div>
-          </div>
-        </button>
-      </div>
-
-      <div class="nav-bar">
-        <div class="text-wrapper-2">JCI</div>
-        <div class="frame-2">
-          <div class="nav-link"><div class="text-wrapper-3">Explore</div></div>
-          <div class="div-wrapper"><div class="text-wrapper-4">Forum</div></div>
-          <div class="nav-link-2"><div class="text-wrapper-5">Contact Us</div></div>
-        </div>
-      </div>
+        </section>
     </div>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            }
+        });
+    </script>
   </body>
 </html>
