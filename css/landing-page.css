@@ -7,7 +7,7 @@
 }
 
 /* Background Image */
-.texture {
+.background {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,6 +16,9 @@
     object-fit: cover;
     z-index: 0;
     opacity: 0.8;
+    
+    will-change: transform;
+    transform-origin: center center;
 }
 
 /* Navbar */
@@ -24,16 +27,31 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 200px;
-    /* Cleaned up background property */
-    background-color: #d4d4d4;
-    position: relative;
-    z-index: 10;
+    
+    /* Sticky & Transparent Settings */
+    position: fixed; /* Stick to top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Start transparent */
+    transition: all 0.4s ease; /* Smooth transition for background changes */
+    
+    z-index: 100; /* Increased z-index to stay above everything */
     height: 70px;
+}
+
+/* Scrolled State (Added by JS) */
+.nav-bar.scrolled {
+    background: rgba(22, 22, 22, 0.4); /* Dark semi-transparent background */
+    backdrop-filter: blur(12px);       /* The "Frosted Glass" Blur Effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;    /* Optional: Shrink slightly on scroll */
+    padding-bottom: 15px;
 }
 
 .brand {
     font-weight: 700;
-    color: #22211f;
+    color: #ffffff; /* Changed to White */
     font-size: 24px;
     letter-spacing: 1px;
 }
@@ -45,7 +63,7 @@
 }
 
 .nav-link {
-    color: #22211f;
+    color: #ffffff; /* Changed to White */
     font-size: 18px;
     font-weight: 400;
     cursor: pointer;
@@ -53,6 +71,7 @@
     position: relative;
 }
 
+/* (The underline animation remains the same, but inherits the new white color) */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -74,7 +93,7 @@
     display: none;
     background: none;
     border: none;
-    color: #22211f;
+    color: #ffffff; /* Changed to White */
     font-size: 28px;
     cursor: pointer;
     padding: 5px;
@@ -90,7 +109,7 @@
     padding: 60px 20px;
     position: relative;
     z-index: 2;
-    min-height: calc(100vh - 70px);
+    min-height: 100vh; 
 }
 
 .hero-content {
@@ -459,7 +478,7 @@
     
     .hero-section {
         padding: 40px 20px;
-        min-height: calc(100vh - 60px);
+        min-height: 100vh; 
     }
     
     .hero-content {

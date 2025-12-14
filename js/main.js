@@ -38,7 +38,35 @@ function initializeMobileMenu() {
     });
 }
 
+function initializeNavbarScroll() {
+    const navbar = document.querySelector('.nav-bar');
+    if (!navbar) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+}
+
+function initializeParallax() {
+    const background = document.querySelector('.background');
+    if (!background) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const scale = 1 + scrollPosition * 0.0001;
+        
+        background.style.transform = `scale(${scale})`;
+    });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     await loadComponent("navbar-placeholder", "navbar.html");
+    
     initializeMobileMenu();
+    initializeNavbarScroll();
+    initializeParallax();
 });
