@@ -1,20 +1,19 @@
 :root {
-    /* Updated Palette */
     --bg-color: #171515;
     --text-white: #FFFFFF;
     --color-1: #22211F;
     --color-2: #080807;
     --color-3: #171612;
     
-    /* Typography */
     --font-primary: 'Inter', sans-serif; 
     
-    /* Spacing */
-    --header-height: 80px; /* Slightly taller for the new look */
+    --font-body: var(--font-primary);
+    --font-display: var(--font-primary);
+    
+    --header-height: 80px; 
     --container-width: 1280px;
 }
 
-/* Reset & Base Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -46,7 +45,6 @@ button {
     font-family: var(--font-display);
 }
 
-/* Utility / Layout Helpers */
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
@@ -58,39 +56,40 @@ button {
     font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* --- Navigation --- */
 .navbar {
-    /* 1. Makes it stick */
     position: sticky;
     top: 0; 
     
-    /* 2. Ensures it sits ON TOP of everything else (like the hero image) */
     z-index: 1000;
     
-    /* 3. Design: Glassmorphism background */
-    background-color: rgba(23, 21, 21, 0.85); /* Slightly transparent */
-    backdrop-filter: blur(12px);              /* Blurs content behind it */
+    background-color: rgba(23, 21, 21, 0.85);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    
+    display: flex;                 
+    align-items: center;
 }
 
 .nav-container {
     display: flex;
-    justify-content: space-between; /* This pushes Brand to left, Links to right */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
 .brand {
     font-family: var(--font-primary);
-    font-weight: 700; /* Bold */
-    font-size: 24px;  /* Match Figma size */
+    font-weight: 700;
+    font-size: 24px;
     color: var(--text-white);
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: -0.02em;
 }
 
-/* Add this to hide the square icon */
 .logo-icon {
     display: none; 
 }
@@ -104,7 +103,7 @@ button {
 
 .nav-links {
     display: none;
-    gap: 3rem; /* Adjusted gap for larger text */
+    gap: 3rem;
 }
 
 @media (min-width: 640px) {
@@ -115,33 +114,30 @@ button {
 
 .nav-links a {
     font-family: var(--font-primary);
-    font-size: 18px;  /* Match Figma size */
-    font-weight: 400; /* Regular */
+    font-size: 18px;
+    font-weight: 400;
     color: var(--text-white);
-    position: relative; /* Needed for the underline positioning */
+    position: relative;
     text-decoration: none;
-    padding-bottom: 4px; /* Space between text and underline */
+    padding-bottom: 4px;
 }
 
-/* The Underline Line */
 .nav-links a::after {
     content: '';
     position: absolute;
     width: 100%;
-    height: 2px; /* Thickness of the line */
+    height: 2px;
     bottom: 1px;
     left: 0;
     background-color: var(--text-white);
     
-    /* Animation Logic */
-    transform: scaleX(0);       /* Start hidden (0 width) */
-    transform-origin: center;   /* Expand from the center */
+    transform: scaleX(0);
+    transform-origin: center;
     transition: transform 0.3s ease-out;
 }
 
-/* Hover State */
 .nav-links a:hover::after {
-    transform: scaleX(1); /* Expand to full width */
+    transform: scaleX(1);
 }
 
 .nav-actions {
@@ -171,10 +167,9 @@ button {
     display: block;
 }
 
-/* --- Hero Section --- */
 .hero {
     position: relative;
-    height: 85vh;
+    height: 100vh;
     min-height: 600px;
     display: flex;
     align-items: center;
@@ -190,18 +185,29 @@ button {
     z-index: 0;
 }
 
-.hero-overlay-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, var(--bg-dark), rgba(16, 22, 34, 0.4), transparent);
-    z-index: 2;
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 10;
-    max-width: 56rem;
-    padding: 0 1rem;
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    margin-bottom: 1.5rem;
+    color: var(--color-1);
+}
+
+.hero p {
+    font-size: 1.125rem;
+    color: var(--color-2);
+    font-weight: 500;
+    max-width: 42rem;
+    margin: 0 auto 2rem auto;
 }
 
 .badge {
@@ -255,41 +261,62 @@ button {
     justify-content: center;
     gap: 1rem;
 }
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.btn-text {
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.btn-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-out;
+}
+
+.btn-hero-primary:hover .btn-text::after,
+.btn-hero-secondary:hover .btn-text::after {
+    transform: scaleX(1);
+}
 
 .btn-hero-primary {
     display: flex;
     align-items: center;
-    height: 3rem;
+    height: 3.5rem;
     padding: 0 2rem;
-    background-color: var(--primary);
-    color: white;
+    background-color: var(--color-1);
+    color: var(--text-white);
     font-weight: 700;
     border-radius: 0.5rem;
-    box-shadow: 0 0 20px rgba(19, 91, 236, 0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-hero-primary:hover {
-    box-shadow: 0 0 30px rgba(19, 91, 236, 0.6);
+    transition: all 0.2s;
+    gap: 0.5rem;
 }
 
 .btn-hero-secondary {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3rem;
+    height: 3.5rem;
     padding: 0 2rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
+    background-color: transparent;
+    border: 2px solid var(--color-1);
+    color: var(--color-1);
     font-weight: 700;
     border-radius: 0.5rem;
-    backdrop-filter: blur(4px);
-    transition: background-color 0.2s;
-}
-
-.btn-hero-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+    gap: 0.5rem;
 }
 
 .scroll-indicator {
@@ -312,86 +339,6 @@ button {
     letter-spacing: 0.1em;
 }
 
-/* --- Stats Section --- */
-.stats-strip {
-    background-color: rgba(26, 34, 48, 0.5);
-    backdrop-filter: blur(4px);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 2rem 0;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.stat-item {
-    text-align: center;
-    border-right: 1px solid var(--border-color);
-}
-
-.stat-item:last-child {
-    border-right: none;
-}
-
-.stat-value {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-}
-
-.stat-unit {
-    color: var(--primary);
-    font-size: 1.125rem;
-    margin-left: 0.25rem;
-}
-
-.stat-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-gray-dark);
-}
-
-/* --- Awards Section --- */
-.awards-section {
-    padding: 4rem 0;
-    background-color: var(--bg-dark);
-    text-align: center;
-}
-
-.awards-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    opacity: 0.8;
-    margin-bottom: 2.5rem;
-}
-
-.awards-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    opacity: 0.4;
-    filter: grayscale(100%);
-    transition: all 0.5s ease;
-}
-
-.awards-logos:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-}
-
-.award-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* --- Features Grid --- */
 .features-section {
     padding: 5rem 0;
     background-color: var(--bg-darker);
@@ -492,7 +439,6 @@ button {
     transform: translateY(0);
 }
 
-/* --- Product Detail --- */
 .product-detail {
     padding: 6rem 0;
     background-color: var(--bg-dark);
@@ -508,7 +454,7 @@ button {
 
 .image-wrapper {
     position: relative;
-    order: 2; /* Mobile first: Image below text? No, usually top, but original design had swap */
+    order: 2;
 }
 
 .abstract-glow {
@@ -610,7 +556,6 @@ button {
     text-decoration: underline;
 }
 
-/* --- CTA Section --- */
 .cta-section {
     padding: 5rem 0;
     background-color: var(--primary);
@@ -687,7 +632,6 @@ button {
     transition: background-color 0.2s;
 }
 
-/* --- Footer --- */
 .footer {
     background-color: var(--bg-darker);
     border-top: 1px solid var(--border-color);
@@ -785,7 +729,6 @@ button {
     color: var(--text-gray-dark);
 }
 
-/* --- Skeletons & Animations --- */
 @keyframes shimmer {
     0% { background-position: -1000px 0; }
     100% { background-position: 1000px 0; }
@@ -814,10 +757,7 @@ button {
     height: 100%;
 }
 
-/* --- Media Queries (Tablet & Desktop) --- */
-
 @media (min-width: 640px) {
-    /* Tablet */
     .hero h1 { font-size: 5rem; }
     .nav-links { display: flex; }
     .mobile-menu-btn { display: none; }
@@ -826,7 +766,6 @@ button {
 }
 
 @media (min-width: 768px) {
-    /* Large Tablet / Small Laptop */
     .stats-grid { grid-template-columns: repeat(4, 1fr); }
     .features-grid { grid-template-columns: repeat(3, 1fr); }
     .feature-card { aspect-ratio: 3/4; }
@@ -839,9 +778,8 @@ button {
 }
 
 @media (min-width: 1024px) {
-    /* Desktop */
     .hero h1 { font-size: 6rem; }
     .detail-grid { grid-template-columns: 1fr 1fr; }
     .footer-grid { grid-template-columns: repeat(4, 1fr); }
-    .nav-actions button.hidden { display: flex; } /* Pre-order button */
+    .nav-actions button.hidden { display: flex; }
 }
