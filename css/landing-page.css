@@ -27,31 +27,27 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 200px;
-    
-    /* Sticky & Transparent Settings */
-    position: fixed; /* Stick to top */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: transparent; /* Start transparent */
-    transition: all 0.4s ease; /* Smooth transition for background changes */
-    
-    z-index: 100; /* Increased z-index to stay above everything */
+    background-color: transparent;
+    transition: all 0.4s ease;
+    z-index: 100;
     height: 70px;
 }
 
-/* Scrolled State (Added by JS) */
 .nav-bar.scrolled {
-    background: rgba(22, 22, 22, 0.4); /* Dark semi-transparent background */
-    backdrop-filter: blur(12px);       /* The "Frosted Glass" Blur Effect */
+    background: rgba(22, 22, 22, 0.4);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 15px;    /* Optional: Shrink slightly on scroll */
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
 .brand {
     font-weight: 700;
-    color: #ffffff; /* Changed to White */
+    color: #ffffff;
     font-size: 24px;
     letter-spacing: 1px;
 }
@@ -63,7 +59,7 @@
 }
 
 .nav-link {
-    color: #ffffff; /* Changed to White */
+    color: #ffffff;
     font-size: 18px;
     font-weight: 400;
     cursor: pointer;
@@ -71,7 +67,6 @@
     position: relative;
 }
 
-/* (The underline animation remains the same, but inherits the new white color) */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -256,14 +251,12 @@
     max-width: 650px;
 }
 
-/* Grid Layout */
 .vision-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
 }
 
-/* Card Styles */
 .vision-card {
     position: relative;
     border-radius: 16px;
@@ -350,7 +343,7 @@
 /* --- Expertise Section --- */
 .expertise-section {
     padding: 100px 200px;
-    background-color: #0E0D0D; /* Requested Dark Background */
+    background-color: #0E0D0D;
     position: relative;
     z-index: 2;
     overflow: hidden;
@@ -359,7 +352,7 @@
 
 .expertise-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 Columns side by side */
+    grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
     max-width: 1280px;
@@ -505,7 +498,7 @@
 }
 
 .awards-section {
-    padding: 100px 200px; /* Matches Expertise Section Width */
+    padding: 100px 200px;
     background-color: #171515;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
@@ -522,7 +515,7 @@
 
 .awards-title {
     color: #ffffff;
-    font-size: 48px; /* Matches Vision Title Size */
+    font-size: 48px;
     font-weight: 700;
     margin-bottom: 24px;
     line-height: 1.1;
@@ -539,7 +532,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    max-width: 1000px; /* Limits width so cards don't get too stretched on huge screens */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -556,7 +549,7 @@
 
 .award-banner:hover {
     border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px); /* Subtle slide effect */
+    transform: translateY(-2px);
     background-color: #252323;
 }
 
@@ -577,7 +570,7 @@
 }
 
 .award-details {
-    flex: 1; /* Takes up remaining space */
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -624,7 +617,6 @@
 
 /* Tablet (Max Width: 1024px) */
 @media (max-width: 1024px) {
-    /* Navbar & Hero Adjustments */
     .nav-bar {
         padding: 20px 30px;
     }
@@ -664,7 +656,7 @@
     }
 
     .awards-section {
-        padding: 80px 30px; /* Reduced padding matches other sections */
+        padding: 80px 30px;
     }
     
     .awards-title {
@@ -678,7 +670,6 @@
 
 /* Mobile (Max Width: 768px) */
 @media (max-width: 768px) {
-    /* Navbar & Hero Adjustments */
     .nav-bar {
         padding: 15px 20px;
         height: auto;
@@ -743,16 +734,16 @@
     }
 
     .expertise-container {
-        grid-template-columns: 1fr; /* Stack them vertically */
+        grid-template-columns: 1fr;
     }
 
     .expertise-image-wrapper {
-        order: 1; /* Image first? or swap to 2 if you want text first */
+        order: 1;
         margin-bottom: 40px;
     }
     
     .lens-spec-card {
-        right: 0; /* Align with right edge on mobile */
+        right: 0;
         bottom: -20px;
     }
 
@@ -773,7 +764,7 @@
     }
 
     .award-banner {
-        flex-direction: column; /* Stack icon, text, and badge */
+        flex-direction: column;
         align-items: flex-start;
         text-align: left;
         gap: 16px;
@@ -789,7 +780,7 @@
     }
 
     .award-badge {
-        align-self: flex-start; /* Move badge to the left */
+        align-self: flex-start;
         margin-top: 4px;
     }
 }

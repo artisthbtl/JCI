@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let currentIndex = 0;
 
-    // 1. Render Slides
     function renderSlides() {
         featuredProducts.forEach((product, index) => {
             const slide = document.createElement('div');
@@ -63,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Navigation Logic
     function updateCarousel() {
         const slides = document.querySelectorAll('.carousel-slide');
         
@@ -79,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.addEventListener('click', () => {
         currentIndex++;
         if (currentIndex >= featuredProducts.length) {
-            currentIndex = 0; // Loop back to start
+            currentIndex = 0;
         }
         updateCarousel();
     });
@@ -87,11 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn.addEventListener('click', () => {
         currentIndex--;
         if (currentIndex < 0) {
-            currentIndex = featuredProducts.length - 1; // Loop to end
+            currentIndex = featuredProducts.length - 1;
         }
         updateCarousel();
     });
 
-    // Initialize
     renderSlides();
 });

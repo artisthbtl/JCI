@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCI - Forum</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <link rel="stylesheet" href="../css/globals.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/landing-page.css">
+    <link rel="stylesheet" href="../css/forum.css">
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="forum-page-wrapper">
+        
+        <h1 class="page-heading">Forum</h1>
+
+        <div class="forum-controls">
+            <div class="left-controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                </div>
+
+                <div class="custom-dropdown" id="customTopicDropdown">
+                    <div class="dropdown-trigger" id="dropdownTrigger">
+                        <div class="trigger-content">
+                            <span class="topic-label">Topic • </span>
+                            <span id="selectedValue" class="selected-value">All</span>
+                        </div>
+                        <span class="material-symbols-outlined arrow-icon">expand_more</span>
+                    </div>
+                    
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <div class="dropdown-item active" data-value="All">All</div>
+                        <div class="dropdown-item" data-value="SkyVision">SkyVision</div>
+                        <div class="dropdown-item" data-value="Recox">Recox</div>
+                        <div class="dropdown-item" data-value="General">General</div>
+                        <div class="dropdown-item" data-value="Support">Support</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="add-yours-btn">
+                Add Yours <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+        </div>
+
+        <div class="forum-content-area">
+            
+            <button class="nav-arrow left" id="prevPageBtn">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+
+            <div class="forum-grid" id="forumGrid">
+                </div>
+
+            <button class="nav-arrow right" id="nextPageBtn">
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+
+        </div>
+
+        <div class="pagination-info">
+            Page <span id="currentPage">1</span>
+        </div>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/forum.js"></script>
+</body>
+</html>

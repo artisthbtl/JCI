@@ -1,11 +1,10 @@
-/* Background and Layout */
 body {
     background-color: #171515;
     color: #ffffff;
 }
 
 .products-page-wrapper {
-    padding-top: 100px; /* Space for fixed navbar */
+    padding-top: 100px;
     max-width: 1440px;
     margin: 0 auto;
     padding-bottom: 80px;
@@ -27,7 +26,6 @@ body {
 .carousel-container {
     position: relative;
     width: 100%;
-    /* Changed from fixed height to min-height so it grows on mobile */
     min-height: 600px; 
     display: flex;
     align-items: center;
@@ -36,19 +34,14 @@ body {
 
 .carousel-track {
     width: 100%;
-    /* Use Grid to stack slides instead of absolute positioning */
     display: grid;
     grid-template-columns: 1fr;
-    /* Allows content to overflow visibly if needed, ensuring nothing is cut off */
     overflow: visible; 
 }
 
 .carousel-slide {
-    /* Stack all slides in the same grid cell */
     grid-column: 1;
     grid-row: 1;
-    
-    /* Reset absolute positioning so it takes up physical space */
     position: relative;
     width: 100%;
     height: auto;
@@ -59,7 +52,7 @@ body {
     
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    pointer-events: none; /* Prevent clicking hidden slides */
+    pointer-events: none;
     z-index: 1;
 }
 
@@ -69,7 +62,7 @@ body {
     z-index: 2;
 }
 
-/* Featured Layout: Image + Content */
+/* Featured Layout */
 .slide-content-wrapper {
     display: flex;
     align-items: center;
@@ -108,7 +101,6 @@ body {
     background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
 }
 
-/* Navigation Arrows */
 .nav-arrow {
     position: absolute;
     top: 50%;
@@ -153,13 +145,12 @@ body {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
-/* Product Card Styling */
 .product-card {
-    background-color: #1f1d1d; /* Dark Card Background */
+    background-color: #1f1d1d;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     overflow: hidden;
@@ -201,10 +192,9 @@ body {
     color: #9ca3af;
     line-height: 1.5;
     margin-bottom: 24px;
-    flex: 1; /* Pushes buttons to bottom */
+    flex: 1;
 }
 
-/* Card Buttons */
 .card-buttons {
     display: flex;
     gap: 12px;
@@ -226,7 +216,7 @@ body {
 }
 
 .btn-card span {
-    font-size: 18px; /* Arrow icon size */
+    font-size: 18px;
 }
 
 .btn-card.primary {
@@ -249,28 +239,25 @@ body {
     background-color: #e5e5e5;
 }
 
-/* Featured Button Override (Large) */
 .featured-buttons {
     display: flex;
     gap: 16px;
 }
 
 .featured-buttons .btn-card {
-    flex: initial; /* Don't stretch */
+    flex: initial;
     padding: 14px 24px;
     font-size: 16px;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
     .carousel-container {
-        /* Let container adapt to content height on mobile */
         min-height: auto;
-        padding-bottom: 40px; /* Space for arrows if needed */
+        padding-bottom: 40px;
     }
     
     .slide-content-wrapper {
@@ -284,7 +271,6 @@ body {
         width: 100%;
     }
 
-    /* Added this to center the description box itself */
     .featured-desc {
         margin-left: auto;
         margin-right: auto;
@@ -298,7 +284,7 @@ body {
         width: 100%;
         height: auto;
         max-height: 350px;
-        flex: initial; /* Don't force flex ratio on mobile */
+        flex: initial;
     }
 }
 
@@ -310,7 +296,7 @@ body {
     .nav-arrow {
         width: 40px;
         height: 40px;
-        background: rgba(0,0,0,0.5); /* Make arrows more visible on top of images */
+        background: rgba(0,0,0,0.5);
     }
 
     .featured-title {

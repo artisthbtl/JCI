@@ -15,7 +15,6 @@
     margin-bottom: 20px;
 }
 
-/* Navigation Columns */
 .footer-nav-group {
     display: flex;
     flex-direction: column;
@@ -46,10 +45,9 @@
 }
 
 .footer-links a:hover {
-    color: #FFFFFF; /* White on Hover/Press */
+    color: #FFFFFF;
 }
 
-/* Newsletter Section */
 .footer-newsletter {
     flex: 1;
     min-width: 300px;
@@ -104,7 +102,6 @@
     color: #FFFFFF;
 }
 
-/* Bottom Bar */
 .footer-bottom {
     display: flex;
     justify-content: center;
@@ -118,7 +115,6 @@
     color: #BDBDBD;
 }
 
-/* Tablet Responsive */
 @media (max-width: 1024px) {
     .main-footer {
         padding: 60px 40px;
@@ -129,7 +125,6 @@
     }
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
     .main-footer {
         padding: 40px 20px;
