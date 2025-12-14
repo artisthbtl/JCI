@@ -96,7 +96,7 @@ body {
 }
 
 .featured-title {
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 700;
     margin-bottom: 16px;
     line-height: 1.1;
@@ -106,7 +106,8 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: #cfcfcf;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    max-width: 340px;
 }
 
 .featured-image {

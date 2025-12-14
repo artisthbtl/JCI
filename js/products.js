@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             name: "SkyVision X7 Pro",
-            desc: "The better version, improved endurance and durability, film everything for 3 hours straight.",
+            desc: "The better version, improved durability, film everything for 3 hours straight.",
             link: "../assets/skyvision-x7-pro.png"
         },
         {
