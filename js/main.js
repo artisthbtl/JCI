@@ -65,6 +65,7 @@ function initializeParallax() {
 
 document.addEventListener("DOMContentLoaded", async () => {
     await loadComponent("navbar-placeholder", "navbar.html");
+    await loadComponent("footer-placeholder", "footer.html");
     
     initializeMobileMenu();
     initializeNavbarScroll();

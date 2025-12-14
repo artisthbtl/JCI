@@ -504,6 +504,120 @@
     line-height: 1.4;
 }
 
+.awards-section {
+    padding: 100px 200px; /* Matches Expertise Section Width */
+    background-color: #0E0D0D;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.awards-header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.awards-title {
+    color: #ffffff;
+    font-size: 48px; /* Matches Vision Title Size */
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.awards-description {
+    color: #9ca3af;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 650px;
+}
+
+.awards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1000px; /* Limits width so cards don't get too stretched on huge screens */
+    margin: 0 auto;
+}
+
+.award-banner {
+    display: flex;
+    align-items: center;
+    background-color: #1f1d1d;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 24px 32px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    gap: 24px;
+}
+
+.award-banner:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px); /* Subtle slide effect */
+    background-color: #252323;
+}
+
+.award-icon-box {
+    width: 56px;
+    height: 56px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.award-icon-box span {
+    font-size: 28px;
+}
+
+.award-details {
+    flex: 1; /* Takes up remaining space */
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.award-name {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.award-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.drone-model {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.separator {
+    color: #4b5563;
+}
+
+.award-badge {
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
 
 
 
@@ -547,6 +661,18 @@
 
     .section-title {
         font-size: 40px;
+    }
+
+    .awards-section {
+        padding: 80px 30px; /* Reduced padding matches other sections */
+    }
+    
+    .awards-title {
+        font-size: 40px;
+    }
+    
+    .award-banner {
+        padding: 20px;
     }
 }
 
@@ -636,5 +762,34 @@
 
     .tech-card {
         padding: 16px;
+    }
+
+    .awards-section {
+        padding: 60px 20px;
+    }
+
+    .awards-title {
+        font-size: 32px;
+    }
+
+    .award-banner {
+        flex-direction: column; /* Stack icon, text, and badge */
+        align-items: flex-start;
+        text-align: left;
+        gap: 16px;
+    }
+
+    .award-icon-box {
+        width: 48px;
+        height: 48px;
+    }
+
+    .award-icon-box span {
+        font-size: 24px;
+    }
+
+    .award-badge {
+        align-self: flex-start; /* Move badge to the left */
+        margin-top: 4px;
     }
 }
