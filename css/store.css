@@ -1,0 +1,161 @@
+/* Inherit standard JCI body background */
+body {
+    background-color: #171515;
+    color: #ffffff;
+}
+
+/* Wrapper similar to your other pages */
+.store-page-wrapper {
+    padding-top: 120px; /* Space for fixed navbar */
+    padding-bottom: 80px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the card vertically and horizontally */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* The Main Card - Matches visual reference but in Dark Mode */
+.store-card {
+    background-color: #1f1d1d; /* Your standard card color */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 60px 40px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Depth shadow */
+}
+
+.store-heading {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.store-subheading {
+    font-size: 14px;
+    color: #DEDEDE;
+    margin-bottom: 20px;
+}
+
+/* --- App Store Buttons --- */
+.app-buttons-container {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.app-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centered content */
+    gap: 12px;
+    background-color: #080807;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.app-btn:hover {
+    border-color: #ffffff;
+}
+
+.app-btn .icon {
+    font-size: 32px;
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-text .small {
+    font-size: 10px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.btn-text .large {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* --- Divider --- */
+.divider {
+    height: 1px;
+    background: repeating-linear-gradient(
+        to right,
+        #DEDEDE 0,
+        #DEDEDE 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    margin: 0 auto 40px auto;
+    width: 100%;
+}
+
+/* --- Partners Grid --- */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.partner-item {
+    background-color: #080807;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.partner-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* --- Skeleton Loader for Logos --- */
+.logo-skeleton {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .app-buttons-container {
+        flex-direction: column;
+    }
+    
+    .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .store-card {
+        padding: 40px 20px;
+    }
+}
