@@ -298,7 +298,7 @@ body {
 .post-title {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     line-height: 1.3;
     display: flex;
     flex-wrap: wrap;
@@ -322,14 +322,10 @@ body {
 
 .post-excerpt {
     font-size: 14px;
-    color: #9ca3af;
+    color: #DEDEDE;
     line-height: 1.6;
     margin-bottom: 24px;
     flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .post-footer {
@@ -351,6 +347,31 @@ body {
 
 .stat-item span {
     font-size: 16px;
+}
+
+button.stat-item {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: 12px;
+    color: #DEDEDE;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button.stat-item:hover {
+    color: #ffffff;
+}
+
+button.like-btn:hover .material-symbols-outlined,
+button.like-btn.active .material-symbols-outlined {
+    color: #ef4444;
+    font-variation-settings: 'FILL' 1;
+}
+
+button.share-btn:hover .material-symbols-outlined {
+    color: #3b82f6;
 }
 
 .pagination-info {

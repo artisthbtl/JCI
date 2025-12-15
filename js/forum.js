@@ -145,18 +145,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="post-excerpt">${post.content}</p>
 
                     <div class="post-footer">
-                        <div class="stat-item">
+                        <div class="stat-item" title="Views">
                             <span class="material-symbols-outlined">visibility</span>
                             ${post.views}
                         </div>
-                        <div class="stat-item">
+                        
+                        <button class="stat-item action-btn like-btn" data-id="${post.id}" onclick="handleLike(this)">
                             <span class="material-symbols-outlined">favorite</span>
-                            ${post.likes}
-                        </div>
-                        <div class="stat-item">
+                            <span class="count">${post.likes}</span>
+                        </button>
+                        
+                        <button class="stat-item action-btn share-btn" data-id="${post.id}" onclick="handleShare(this)">
                             <span class="material-symbols-outlined">share</span>
-                            ${post.shares}
-                        </div>
+                            <span class="count">${post.shares}</span>
+                        </button>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -222,3 +224,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderPosts();
 });
+
+window.handleLike = function(btn) {
+    event.stopPropagation();
+    
+    const countSpan = btn.querySelector('.count');
+    let currentCount = parseInt(countSpan.innerText);
+    
+    btn.classList.toggle('active');
+    
+    if (btn.classList.contains('active')) {
+        countSpan.innerText = currentCount + 1;
+    } else {
+        countSpan.innerText = currentCount - 1;
+    }
+    
+    console.log(`Liked post ${btn.dataset.id}`);
+};
+
+window.handleShare = function(btn) {
+    event.stopPropagation();
+    
+    const countSpan = btn.querySelector('.count');
+    let currentCount = parseInt(countSpan.innerText);
+    
+    alert("Link copied to clipboard!");
+    countSpan.innerText = currentCount + 1;
+    
+    console.log(`Shared post ${btn.dataset.id}`);
+};
