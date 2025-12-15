@@ -63,6 +63,26 @@ function initializeParallax() {
     });
 }
 
+function initializeHeroButtons() {
+    const heroSection = document.querySelector('.hero-section');
+    if (!heroSection) return;
+
+    const exploreBtn = heroSection.querySelector('.btn-primary');
+    const contactBtn = heroSection.querySelector('.btn-secondary');
+
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', () => {
+            window.location.href = 'products.html';
+        });
+    }
+
+    if (contactBtn) {
+        contactBtn.addEventListener('click', () => {
+            window.location.href = 'contact.html';
+        });
+    }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     await loadComponent("navbar-placeholder", "navbar.html");
     await loadComponent("footer-placeholder", "footer.html");
@@ -70,4 +90,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     initializeMobileMenu();
     initializeNavbarScroll();
     initializeParallax();
+    initializeHeroButtons();
 });

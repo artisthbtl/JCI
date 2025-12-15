@@ -221,6 +221,13 @@ document.addEventListener("DOMContentLoaded", () => {
             renderPosts();
         }
     });
+    
+    const addYoursBtn = document.querySelector('.add-yours-btn');
+    if (addYoursBtn) {
+        addYoursBtn.addEventListener('click', () => {
+            alert("Redirecting to Add Yours page...");
+        });
+    }
 
     renderPosts();
 });

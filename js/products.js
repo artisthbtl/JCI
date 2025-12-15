@@ -74,21 +74,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex++;
-        if (currentIndex >= featuredProducts.length) {
-            currentIndex = 0;
-        }
-        updateCarousel();
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentIndex++;
+            if (currentIndex >= featuredProducts.length) {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        currentIndex--;
-        if (currentIndex < 0) {
-            currentIndex = featuredProducts.length - 1;
-        }
-        updateCarousel();
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = featuredProducts.length - 1;
+            }
+            updateCarousel();
+        });
+    }
 
     renderSlides();
+
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-card');
+        
+        if (!btn) return;
+
+        if (btn.classList.contains('primary')) {
+            e.preventDefault();
+            alert("Redirecting to product's detail...");
+        }
+        
+        else if (btn.classList.contains('secondary')) {
+            e.preventDefault();
+            window.location.href = 'store.html';
+        }
+    });
 });
